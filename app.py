@@ -5,6 +5,7 @@ import folium
 from streamlit_folium import st_folium
 from folium import Element
 import uuid
+import json
 
 # Earth Engine 初期化
 # secrets からサービスアカウント情報を取得
@@ -15,9 +16,10 @@ key_dict = {
     "token_uri": "https://oauth2.googleapis.com/token"
 }
 
+# key_dict を JSON 文字列に変換して渡す
 credentials = ee.ServiceAccountCredentials(
     st.secrets["GEE_EMAIL"],
-    key_data=key_dict
+    key_data=json.dumps(key_dict)
 )
 ee.Initialize(credentials)
 
