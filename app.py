@@ -7,7 +7,20 @@ from folium import Element
 import uuid
 
 # Earth Engine 初期化
-ee.Initialize(project='bustling-dynamo-341001')
+#ee.Initialize(project='bustling-dynamo-341001')
+
+# secrets からサービスアカウント情報を取得
+key_dict = {
+    "type": "service_account",
+    "client_email": st.secrets["GEE_EMAIL"],
+    "private_key": st.secrets["GEE_KEY"],
+    ...
+}
+credentials = ee.ServiceAccountCredentials(
+    st.secrets["GEE_EMAIL"],
+    key_data=key_dict
+)
+ee.Initialize(credentials)
 
 # 地理範囲（秋田県）
 akita = ee.Geometry.Rectangle([138.8, 38.92, 141.18, 41.1])
