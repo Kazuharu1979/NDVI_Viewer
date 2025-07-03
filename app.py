@@ -10,9 +10,16 @@ import uuid
 # secrets からサービスアカウント情報を取得
 key_dict = {
     "type": "service_account",
-    "client_email": st.secrets["GEE_EMAIL"],
+    "project_id": "bustling-dynamo-341001",
+    "private_key_id": "0134e49e3e195213649e4c8464fda8d40475ff21",
     "private_key": st.secrets["GEE_KEY"],
-    ...
+    "client_email": st.secrets["GEE_EMAIL"],
+    "client_id": "108754241177161405846",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/earth-engine-api%40bustling-dynamo-341001.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
 }
 credentials = ee.ServiceAccountCredentials(
     st.secrets["GEE_EMAIL"],
