@@ -7,8 +7,6 @@ from folium import Element
 import uuid
 
 # Earth Engine 初期化
-#ee.Initialize(project='bustling-dynamo-341001')
-
 # secrets からサービスアカウント情報を取得
 key_dict = {
     "type": "service_account",
