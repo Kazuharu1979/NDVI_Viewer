@@ -32,7 +32,7 @@ st.set_page_config(layout="wide")
 
 # サイドバー UI
 st.sidebar.title("期間設定")
-ref_date = st.sidebar.date_input("基準日（この日を含む過去3週間）", value=date(2025, 7, 3))
+ref_date = st.sidebar.date_input("基準日（この日を含む過去3週間）", value=date.today())
 start_date = ref_date - timedelta(days=20)
 end_date = ref_date
 st.sidebar.markdown(f"**対象期間**: {start_date} ～ {end_date}")
